@@ -55,7 +55,7 @@ object, video {
 /* ====================== Navigation ====================== */
 nav {
   width: 100%;
-  height: 80px;
+  height: 110px;
   background-color: #252831;
   text-align:center;
 }
@@ -69,6 +69,13 @@ nav h1 a {
   letter-spacing: 10px;
   text-transform: uppercase;
 }
+
+img#logo {
+	width: 64px;
+	height: 64px;
+	margin: 5px auto;
+}
+
 #breadcrumb {
     padding: 10px 40px 16px;
     list-style: none;
