@@ -154,6 +154,13 @@ class DBHelper {
   }
 
   /**
+   * Restaurant image thumbnail URL.
+   */
+  static thumbnailUrlForRestaurant(restaurant) {
+    return (`/img/thumb_${restaurant.photograph}`);
+  }
+
+  /**
    * Map marker for a restaurant.
    */
   static mapMarkerForRestaurant(restaurant, map) {
