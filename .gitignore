@@ -2,3 +2,6 @@
 img/.DS_Store
 index.html
 js/private.js
+node_modules/*
+package-lock.json
+package.json
