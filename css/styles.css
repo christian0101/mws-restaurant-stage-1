@@ -121,7 +121,10 @@ img#logo {
   min-height: 50px;
   background-color: #3397DB;
   align-items: center;
+	align-self: center;
+	text-align: center;
 }
+
 .filter-options h2 {
   color: white;
   font-size: 1rem;
@@ -130,6 +133,7 @@ img#logo {
   margin: 0 20px;
 	padding-top: 1em;
 }
+
 .filter-options select {
   background-color: white;
   border: 1px solid #fff;
@@ -140,6 +144,12 @@ img#logo {
   margin: 10px;
   padding: 0 10px;
   min-width: 48px;
+}
+
+@media screen and (min-width: 462px) {
+	.filter-options h2, .filter-options select {
+		display: inline-block;
+	}
 }
 
 /* ====================== Restaurant Listing ====================== */
