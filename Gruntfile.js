@@ -25,7 +25,7 @@ module.exports = function(grunt) {
             quality: 60
           },{
             /* Change these */
-            width: 1000,
+            width: 500,
             suffix: '_medium',
             quality: 80
           }]
@@ -49,7 +49,7 @@ module.exports = function(grunt) {
         options: {
           gravity: "center",
           format: "jpg",
-          width: 500
+          width: 250
         },
 
         files: {

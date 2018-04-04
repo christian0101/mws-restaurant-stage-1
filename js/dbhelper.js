@@ -147,17 +147,32 @@ class DBHelper {
   }
 
   /**
-   * Restaurant image URL.
+   * Restaurant image description.
    */
-  static imageUrlForRestaurant(restaurant) {
-    return (`/imgs/${restaurant.photographs}`);
+  static getPhotoDescription(restaurant) {
+    return (`${restaurant.photoDescription}`);
   }
 
   /**
-   * Restaurant image thumbnail URL.
+   * Restaurant image URL.
    */
-  static thumbnailUrlForRestaurant(restaurant) {
-    return (`/imgs/${restaurant.photographs[0]}`);
+  static imageUrlForRestaurant(restaurant, index = 1) {
+    return (`/imgs/${restaurant.photographs[index]}`);
+  }
+
+  /**
+   * Restaurant image srcset URLs.
+   */
+  static imageSRCSetUrlsForRestaurant(restaurant, indexes) {
+    const weights = {0: "800w", 1: "500w", 2: "1600w"};
+
+    let srcSet = "";
+
+    indexes.forEach(index => {
+      srcSet += `/imgs/${restaurant.photographs[index]} ${weights[index]}, `;
+    });
+
+    return srcSet;
   }
 
   /**

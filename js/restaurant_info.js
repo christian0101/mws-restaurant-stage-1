@@ -55,9 +55,21 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
 
+  const picture = document.getElementById('picure-element');
+  const sourceOne = document.createElement("SOURCE");
+  const sourceTwo = document.createElement("SOURCE");
+
   const image = document.getElementById('restaurant-img');
-  image.className = 'restaurant-img'
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  picture.className = 'restaurant-img'
+  image.src = DBHelper.imageUrlForRestaurant(restaurant, 0);
+  image.alt = DBHelper.getPhotoDescription(restaurant);
+
+  sourceOne.media = '(min-width: 800px)';
+  sourceOne.srcset = DBHelper.imageUrlForRestaurant(restaurant, 2);
+  sourceTwo.media = '(max-width: 500px)';
+  sourceTwo.srcset = DBHelper.imageUrlForRestaurant(restaurant);
+  picture.insertBefore(sourceOne, image);
+  picture.insertBefore(sourceTwo, image);
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
@@ -119,18 +131,22 @@ createReviewHTML = (review) => {
   const li = document.createElement('li');
   const name = document.createElement('p');
   name.innerHTML = review.name;
+  name.className = 'review-name';
   li.appendChild(name);
 
   const date = document.createElement('p');
   date.innerHTML = review.date;
+  date.className = 'review-date';
   li.appendChild(date);
 
   const rating = document.createElement('p');
   rating.innerHTML = `Rating: ${review.rating}`;
+  rating.className = 'review-rating';
   li.appendChild(rating);
 
   const comments = document.createElement('p');
   comments.innerHTML = review.comments;
+  comments.className = 'review-comments';
   li.appendChild(comments);
 
   return li;
