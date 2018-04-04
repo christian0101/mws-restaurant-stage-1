@@ -51,9 +51,11 @@ fetchRestaurantFromURL = (callback) => {
 fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.getElementById('restaurant-name');
   name.innerHTML = restaurant.name;
+  name.title = 'restaurant name';
 
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
+  address.title = 'restaurant address';
 
   const picture = document.getElementById('picure-element');
   const sourceOne = document.createElement("SOURCE");
@@ -73,6 +75,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
+  cuisine.title = 'restaurant cuisine type';
 
   // fill operating hours
   if (restaurant.operating_hours) {
@@ -134,21 +137,25 @@ createReviewHTML = (review) => {
   const name = document.createElement('p');
   name.innerHTML = review.name;
   name.className = 'review-name';
+  name.title = "reviewer's name";
   li.appendChild(name);
 
   const date = document.createElement('p');
   date.innerHTML = review.date;
   date.className = 'review-date';
+  date.title = 'date when review was posted';
   li.appendChild(date);
 
   const rating = document.createElement('p');
   rating.innerHTML = `Rating: ${review.rating}`;
   rating.className = 'review-rating';
+  rating.title = 'given rating';
   li.appendChild(rating);
 
   const comments = document.createElement('p');
   comments.innerHTML = review.comments;
   comments.className = 'review-comments';
+  comments.title = 'comments from the reviewer';
   li.appendChild(comments);
 
   return li;

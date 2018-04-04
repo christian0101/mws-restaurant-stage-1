@@ -54,6 +54,20 @@ object, video {
   text-transform: uppercase;
 }
 /* ====================== Navigation ====================== */
+.skip-link {
+	position: absolute;
+	top: -40px;
+	left: 0;
+	background: red;
+	color: white;
+	padding: 8px;
+	z-index: 100;
+}
+
+.skip-link:focus {
+	top: 0;
+}
+
 nav {
   width: 100%;
   height: auto;
@@ -277,11 +291,12 @@ img#logo {
 }
 #restaurants-list li a {
   background-color: orange;
-  border-bottom: 3px solid #eee;
+	border-radius: 3px;
+	box-shadow: 1px 4px 5px #E4E4E4;
   color: #fff;
   display: inline-block;
   font-size: 10pt;
-  margin: 15px 0 0;
+  margin: 15px 15px 10px 15px;
   padding: 8px 30px 10px;
   text-align: center;
   text-decoration: none;
@@ -347,6 +362,7 @@ img#logo {
   text-align: center;
   text-transform: uppercase;
 	width: 100%;
+	box-shadow: 0 -4px 30px -6px rgba(0, 0, 0, .65);
 }
 
 #reviews-container {
@@ -501,6 +517,7 @@ img#logo {
 	}
 
 	#restaurant-hours {
+		padding: 0 10px 0 0;
 		width: calc((100% - 20px) / 2);
 	}
 
