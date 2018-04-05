@@ -2,6 +2,15 @@ let restaurant;
 var map;
 
 /**
+ * Fetch data as soon as the page is loaded.
+ */
+document.addEventListener('DOMContentLoaded', (event) => {
+  PrivateContent.addMap();
+  DBHelper.registerServiceWorker();
+});
+
+
+/**
  * Initialize Google map, called from HTML.
  */
 window.initMap = () => {

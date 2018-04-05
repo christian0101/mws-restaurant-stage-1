@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
   <!-- Normalize.css for better cross-browser consistency -->
-  <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+  <link rel="stylesheet" src="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" />
   <!-- Main CSS file -->
   <link rel="stylesheet" href="css/styles.css" type="text/css">
   <title>Restaurant Info</title>
@@ -31,7 +31,7 @@
   <main id="maincontent">
     <!-- Beginning map -->
     <aside>
-      <section  title="map with the locationo the selected resturant" id="map-container">
+      <section title="map with the locationo the selected resturant" id="map-container">
         <div id="map"></div>
       </section>
     </aside>
@@ -60,6 +60,13 @@
     Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
   </footer>
   <!-- End footer -->
+
+  <div class="toast-dismissed" id="toast">
+    <div class="toast-content">New version available
+      <button id="refreshsw" class="unbutton">Refresh</button>
+      <button onclick="DBHelper.dismissToast()" class="unbutton">Dismiss</button>
+    </div>
+  </div>
 
   <!-- Beginning scripts -->
   <!-- Database helpers -->

@@ -1,6 +1,13 @@
 @charset "utf-8";
 /* CSS Document */
 
+:root {
+    --main-text-color: #DB3B00;
+		--secondary-text-color: #cf3700;
+		--footer-links-color: #fff;
+		--breadcrumb-links-color: #006cc9;
+}
+
 body,td,th,p{
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 10pt;
@@ -18,7 +25,7 @@ ul, li {
 	color: #333;
 }
 a {
-	color: orange;
+	color: var(--footer-links-color);
 	text-decoration: none;
 }
 a:hover, a:focus {
@@ -46,13 +53,62 @@ object, video {
 }
 #footer {
   background-color: #444;
-  color: #aaa;
+  color: #b1b1b1;
   font-size: 8pt;
   letter-spacing: 1px;
   padding: 25px;
   text-align: center;
   text-transform: uppercase;
 }
+
+.toast {
+  color: #fff;
+  background: #323232;
+  padding: 10px 0;
+  padding-right: 0;
+  opacity: 1;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  border-radius: 2px;
+  bottom: 0;
+}
+
+@media screen and (min-width: 700px) {
+  .toast {
+    font-size: 16px;
+  }
+}
+
+.toast-dismissed {
+  display: none;
+}
+
+.toast button {
+  color: var(--secondary-text-color);
+  margin: 0;
+  padding: 16px;
+  text-transform: uppercase;
+}
+
+.toast button:last-child {
+  padding-left: 0;
+}
+
+.toast button:focus {
+  color: #fff;
+}
+
+.unbutton {
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  white-space: nowrap;
+}
+
 /* ====================== Navigation ====================== */
 .skip-link {
 	position: absolute;
@@ -66,6 +122,7 @@ object, video {
 
 .skip-link:focus {
 	top: 0;
+	color: white;
 }
 
 nav {
@@ -117,7 +174,7 @@ img#logo {
 
 /* Add a color to all links inside the list */
 #breadcrumb li a {
-    color: #0275d8;
+    color: var(--breadcrumb-links-color);
     text-decoration: none;
 }
 
@@ -145,11 +202,12 @@ img#logo {
   width: 100%;
   background-color: #ccc;
 }
+
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;
   min-height: 50px;
-  background-color: #3397DB;
+  background-color: #007dba;
   align-items: center;
 	align-self: center;
 	text-align: center;
@@ -157,22 +215,27 @@ img#logo {
 
 .filter-options h2 {
   color: white;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: normal;
   line-height: 1;
   margin: 0 20px;
 	padding-top: 1em;
+	padding-bottom: 0.3em;
 }
 
 .filter-options select {
   background-color: white;
   font-family: Arial,sans-serif;
-  font-size: 11pt;
+  font-size: 16px;
   height: 35px;
   letter-spacing: 0;
-  margin: 10px;
+  margin: 15px;
   padding: 0 10px;
   min-width: 48px;
+}
+
+.filter-options select:focus {
+  outline-color: #000;
 }
 
 @media screen and (min-width: 462px) {
@@ -276,7 +339,7 @@ img#logo {
 	border-top-right-radius: 3px;
 }
 #restaurants-list li h3 {
-  color: #f18200;
+  color: var(--main-text-color);
   font-family: Arial,sans-serif;
   font-size: 14pt;
   font-weight: 200;
@@ -290,7 +353,7 @@ img#logo {
   font-size: 11pt;
 }
 #restaurants-list li a {
-  background-color: orange;
+  background-color: var(--main-text-color);
 	border-radius: 3px;
 	box-shadow: 1px 4px 5px #E4E4E4;
   color: #fff;
@@ -336,7 +399,7 @@ img#logo {
   margin: 20px;
   text-transform: uppercase;
 	height: auto;
-	background: #f18200;
+	background: var(--main-text-color);
 	color: white;
 	padding: 2px 8px 2px 8px;
 	line-height: 48px;
@@ -386,7 +449,7 @@ img#logo {
 }
 
 #reviews-container h2 {
-  color: #f58500;
+  color: var(--secondary-text-color);
   font-size: 24pt;
   font-weight: 300;
   letter-spacing: -1px;
@@ -453,7 +516,7 @@ img#logo {
 	font-weight: bold;
 	letter-spacing: 1.5px;
 	height: 24px;
-	background: #FCAE00;
+	background: var(--main-text-color);
 	color: white;
 	padding: 2px 8px 2px 8px;
 	vertical-align: middle;
