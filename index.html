@@ -14,23 +14,27 @@
     <!-- Skip Link -->
     <a href="#restaurants-list" class="skip-link">Skip to restaurant list</a>
     <nav>
-      <h1><a href="/"><img id="logo" src="img/logo.svg" /><br>Restaurant Reviews</a></h1>
+      <h1><a href="/"><img id="logo" alt="spoon and a fork in a circle, logo" src="img/logo.svg" /><br>Restaurant Reviews</a></h1>
     </nav>
   </header>
 
   <main id="maincontent">
-    <section id="map-container">
+    <section title="map with locations of presented restaurants" id="map-container">
       <div id="map"></div>
     </section>
     <section>
       <div class="filter-options">
         <h2>Filter Results</h2>
-        <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
-          <option value="all">All Neighborhoods</option>
-        </select>
-        <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
-          <option value="all">All Cuisines</option>
-        </select>
+        <label>
+          <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+            <option value="all">All Neighborhoods</option>
+          </select>
+        </label>
+        <label>
+          <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
+            <option value="all">All Cuisines</option>
+          </select>
+        </label>
       </div>
       <ul id="restaurants-list"></ul>
     </section>
