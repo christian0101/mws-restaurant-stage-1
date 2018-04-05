@@ -1,9 +1,7 @@
 const staticCacheName = 'mws-static-v1';
-const contentImgsCache = 'mws-content-imgs';
 
 const allCaches = [
-staticCacheName,
-contentImgsCache
+staticCacheName
 ];
 
 /**
@@ -21,6 +19,38 @@ event.waitUntil(
       '/js/private.js',
       '/js/dbhelper.js',
       '/data/restaurants.json',
+      '/favicon.ico',
+      '/imgs/1-800_small_1x.jpg',
+      '/imgs/1-1600_large_2x.jpg',
+      '/imgs/1.jpg',
+      '/imgs/2-800_small_1x.jpg',
+      '/imgs/2-1600_large_2x.jpg',
+      '/imgs/2.jpg',
+      '/imgs/3-800_small_1x.jpg',
+      '/imgs/3-1600_large_2x.jpg',
+      '/imgs/3.jpg',
+      '/imgs/4-800_small_1x.jpg',
+      '/imgs/4-1600_large_2x.jpg',
+      '/imgs/4.jpg',
+      '/imgs/5-800_small_1x.jpg',
+      '/imgs/5-1600_large_2x.jpg',
+      '/imgs/5.jpg',
+      '/imgs/6-800_small_1x.jpg',
+      '/imgs/6-1600_large_2x.jpg',
+      '/imgs/6.jpg',
+      '/imgs/7-800_small_1x.jpg',
+      '/imgs/7-1600_large_2x.jpg',
+      '/imgs/7.jpg',
+      '/imgs/8-800_small_1x.jpg',
+      '/imgs/8-1600_large_2x.jpg',
+      '/imgs/8.jpg',
+      '/imgs/9-800_small_1x.jpg',
+      '/imgs/9-1600_large_2x.jpg',
+      '/imgs/9.jpg',
+      '/imgs/10-800_small_1x.jpg',
+      '/imgs/10-1600_large_2x.jpg',
+      '/imgs/10.jpg',
+      '/imgs/logo.svg',
       'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700',
       'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css'
     ]);
@@ -70,7 +100,7 @@ self.addEventListener('fetch', function(event) {
 function serveRestuarantPage(request) {
  var storageUrl = request.url.replace(/\?id=\d/, '');
 
- return caches.open(contentImgsCache).then(function(cache) {
+ return caches.open(staticCacheName).then(function(cache) {
    return cache.match(storageUrl).then(function(response) {
      var networkFetch = fetch(request).then(function(networkResponse) {
        cache.put(storageUrl, networkResponse.clone());
