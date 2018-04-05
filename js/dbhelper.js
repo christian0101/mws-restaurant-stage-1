@@ -240,6 +240,7 @@ class DBHelper {
 
      toast.classList.remove('toast-dismissed');
      toast.classList.add('toast');
+     toast.focus();
 
      const refresh = document.getElementById('refreshsw');
      refresh.addEventListener('click', function() {
