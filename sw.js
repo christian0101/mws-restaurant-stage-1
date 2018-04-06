@@ -11,7 +11,7 @@ self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(staticCacheName).then(function(cache) {
       cache.addAll([
-        '/',
+        '/index.html',
         '/restaurant.html',
         '/css/styles.css',
         '/js/main.js',
@@ -59,7 +59,7 @@ self.addEventListener('install', function(event) {
 });
 
 /**
-*
+* Clean unwanted cache
 */
 self.addEventListener('activate', function(event) {
 event.waitUntil(
@@ -77,15 +77,36 @@ event.waitUntil(
 });
 
 /**
-* Respond with existing responses from cache
-*/
+ * Intercept requests and respond with cache or make a request to the server.
+ */
 self.addEventListener('fetch', function(event) {
- var requestUrl = new URL(event.request.url);
+  /*
+    DevTools opening will trigger these o-i-c requests,
+    which this SW can't handle.
+    https://github.com/paulirish/caltrainschedule.io/pull/51
+  */
+  if ((event.request.cache === 'only-if-cached')
+      && (event.request.mode !== 'same-origin')) {
+    return;
+  }
 
- if (requestUrl.pathname === "/restaurant.html") {
-   event.respondWith(serveRestuarantPage(event.request));
+  var requestUrl = new URL(event.request.url);
+  const index = event.request.url + "index.html";
+
+  if (requestUrl.origin === location.origin) {
+   if (requestUrl.pathname === '/') {
+     event.respondWith(servePage(event.request, index));
+     return;
+   }
+   if (requestUrl.pathname === "/restaurant.html") {
+     event.respondWith(serveRestuarantPage(event.request));
+     return;
+   }
+
+   // if cache was removed update it
+   event.respondWith(servePage(event.request, requestUrl.href));
    return;
- }
+}
 
  event.respondWith(
    caches.match(event.request).then(function(response) {
@@ -95,15 +116,22 @@ self.addEventListener('fetch', function(event) {
 });
 
 /**
-* Return the retuarant html template
+* Return the retuarant html template, ignoring id
 */
-function serveRestuarantPage(request) {
- var storageUrl = request.url.replace(/\?id=\d/, '');
+function serveRestuarantPage(request, url) {
+  var storageUrl = request.url.replace(/\?id=\d/, '');
+  return servePage(request, storageUrl);
+}
 
+/**
+* Serve a page with custom url that should match an existing cache url, fetch
+* from network oherwise.
+*/
+function servePage(request, customUrl) {
  return caches.open(staticCacheName).then(function(cache) {
-   return cache.match(storageUrl).then(function(response) {
+   return cache.match(customUrl).then(function(response) {
      var networkFetch = fetch(request).then(function(networkResponse) {
-       cache.put(storageUrl, networkResponse.clone());
+       cache.put(customUrl, networkResponse.clone());
        return networkResponse;
      });
      return response || networkFetch;
@@ -112,7 +140,7 @@ function serveRestuarantPage(request) {
 }
 
 /**
-*  Respond to messages
+*  Respond to messages.
 */
 self.addEventListener('message', function(event) {
  if (event.data.action === 'skipWaiting') {

@@ -58,6 +58,12 @@ fetchRestaurantFromURL = (callback) => {
  * Create restaurant HTML and add it to the webpage
  */
 fillRestaurantHTML = (restaurant = self.restaurant) => {
+  const head = document.getElementsByTagName('head')[0];
+  const description = document.createElement('meta');
+  description.setAttribute('name', 'description');
+  description.setAttribute('content', `Detailed information about ${restaurant.name}`);
+  head.append(description);
+
   const name = document.getElementById('restaurant-name');
   name.innerHTML = restaurant.name;
   name.title = 'restaurant name';
@@ -121,7 +127,7 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
  */
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
-  const title = document.createElement('h2');
+  const title = document.createElement('h3');
   title.innerHTML = 'Reviews';
   container.appendChild(title);
 
@@ -176,6 +182,7 @@ createReviewHTML = (review) => {
 fillBreadcrumb = (restaurant=self.restaurant) => {
   const breadcrumb = document.getElementById('breadcrumb');
   const li = document.createElement('li');
+  li.setAttribute('aria-current', restaurant.name)
   li.innerHTML = restaurant.name;
   breadcrumb.appendChild(li);
 }

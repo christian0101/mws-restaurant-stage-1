@@ -19,7 +19,7 @@
       <h1><a href="/"><img id="logo" alt="spoon and a fork in a circle, logo" src="img/logo.svg" /><br>Restaurant Reviews</a></h1>
     </nav>
     <!-- Beginning breadcrumb -->
-    <ul id="breadcrumb" >
+    <ul aria-label="Breadcrumb" id="breadcrumb" >
       <li><a href="/">Home</a></li>
     </ul>
     <!-- End breadcrumb -->
@@ -32,13 +32,13 @@
     <!-- Beginning map -->
     <aside>
       <section title="map with the locationo the selected resturant" id="map-container">
-        <div id="map"></div>
+        <div role="application" id="map"></div>
       </section>
     </aside>
     <!-- End map -->
     <!-- Beginning restaurant -->
     <section id="restaurant-container">
-      <h1 id="restaurant-name"></h1>
+      <h2 id="restaurant-name"></h1>
       <p id="restaurant-cuisine"></p>
       <picture id="picure-element">
         <img id="restaurant-img" />

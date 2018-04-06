@@ -224,7 +224,7 @@ img#logo {
 }
 
 .filter-options select {
-  background-color: white;
+  background: #fff;
   font-family: Arial,sans-serif;
   font-size: 16px;
   height: 35px;
@@ -238,7 +238,7 @@ img#logo {
   outline-color: #000;
 }
 
-@media screen and (min-width: 462px) {
+@media screen and (min-width: 510px) {
 	.filter-options h2, .filter-options select {
 		display: inline-block;
 	}
@@ -261,7 +261,7 @@ img#logo {
   font-family: Arial,sans-serif;
   margin: 15px;
   min-height: 380px;
-  padding: 0 0 5px 0;
+  padding: 0;
   text-align: center;
   width: 500px;
 	border-radius: 3px;
@@ -271,12 +271,31 @@ img#logo {
 @media screen and (max-width: 567px) {
 	#restaurants-list {
 	  padding: 10px;
+    padding-bottom: 0;
 	}
 
 	#restaurants-list li {
-		padding: 0 0 5px 0;
-		margin: 10px 0;
+		padding: 0;
+		margin: 0;
+    margin-bottom: 10px;
 	  width: 100%;
+	}
+}
+
+@media screen and (min-width: 568px) and (max-width: 959px) {
+	#restaurants-list li {
+	  margin: 0;
+    margin-right: auto;
+	}
+
+	#restaurants-list li:nth-child(2n) {
+	  margin-right: 0;
+	}
+
+	#restaurants-list li:last-child {
+	  margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
 	}
 }
 
@@ -301,32 +320,25 @@ img#logo {
 @media screen and (min-width: 568px) and (max-width: 700px) {
 	#restaurants-list {
 	  padding: 10px;
+    padding-bottom: 0;
 	}
+
+  #restaurants-list li {
+    width: calc((100% - 10px) / 2);
+    margin-bottom: 10px;
+  }
 }
 
 @media screen and (min-width: 700px) and (max-width: 959px) {
 	#restaurants-list {
 	  padding: 15px;
-	}
-}
-
-@media screen and (min-width: 568px) and (max-width: 959px) {
-	#restaurants-list li {
-	  margin: 0 auto 10px 0;
-	  width: calc((100% - 10px) / 2);
+    padding-bottom: 0;
 	}
 
-	#restaurants-list li:nth-child(2n) {
-	  margin: 0 0 10px 0;
-	}
-
-	#restaurants-list li:nth-last-child(2) {
-	  margin: 0 auto 0 0;
-	}
-
-	#restaurants-list li:last-child {
-	  margin: 0;
-	}
+  #restaurants-list li {
+    width: calc((100% - 15px) / 2);
+    margin-bottom: 15px;
+  }
 }
 
 #restaurants-list .restaurant-img {
@@ -448,7 +460,7 @@ img#logo {
 		text-align: center;
 }
 
-#reviews-container h2 {
+#reviews-container h3 {
   color: var(--secondary-text-color);
   font-size: 24pt;
   font-weight: 300;
@@ -551,7 +563,7 @@ img#logo {
 		margin-bottom: 10px;
 	}
 
-	#restaurant-name, #reviews-container h2 {
+	#restaurant-name, #reviews-container h3 {
 		text-align: center;
 		margin: 20px;
 		font-size: 17pt;
