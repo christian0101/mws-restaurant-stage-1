@@ -2,7 +2,7 @@
 ---
 #### _Three Stage Course Material Project - Restaurant Reviews_
 
-[Preview](https://christian0101.github.io/mws-restaurant-stage-1/)
+<a href="https://christian0101.github.io/mws-restaurant-stage-1/" target="_blank">Preview</a>
 
 ## Project Overview: Stage 1
 
