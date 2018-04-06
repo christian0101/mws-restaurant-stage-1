@@ -95,11 +95,11 @@ self.addEventListener('fetch', function(event) {
   const index = event.request.url + "index.html";
 
   if (requestUrl.origin === location.origin) {
-   if (requestUrl.pathname === '/') {
+   if (requestUrl.pathname === './') {
      event.respondWith(servePage(event.request, index));
      return;
    }
-   if (requestUrl.pathname === "/restaurant.html") {
+   if (requestUrl.pathname.endsWith("restaurant.html")) {
      event.respondWith(serveRestuarantPage(event.request));
      return;
    }
