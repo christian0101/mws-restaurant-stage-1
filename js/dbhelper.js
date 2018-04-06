@@ -157,7 +157,7 @@ class DBHelper {
    * Restaurant image URL.
    */
   static imageUrlForRestaurant(restaurant, index = 1) {
-    return (`/imgs/${restaurant.photographs[index]}`);
+    return (`imgs/${restaurant.photographs[index]}`);
   }
 
   /**
@@ -169,7 +169,7 @@ class DBHelper {
     let srcSet = "";
 
     indexes.forEach(index => {
-      srcSet += `/imgs/${restaurant.photographs[index]} ${weights[index]}, `;
+      srcSet += `imgs/${restaurant.photographs[index]} ${weights[index]}, `;
     });
 
     return srcSet;
