@@ -150,7 +150,7 @@ class DBHelper {
    * Restaurant image description.
    */
   static getPhotoDescription(restaurant) {
-    return (`${restaurant.photoDescription}`);
+    return (`Photo of ${restaurant.name} in ${restaurant.neighborhood}`);
   }
 
   /**

@@ -1,11 +1,11 @@
 const staticCacheName = 'mws-static-v1';
 
 const allCaches = [
-staticCacheName
+  staticCacheName
 ];
 
 /**
-* Install service worker
+* Install service worker.
 */
 self.addEventListener('install', function(event) {
   event.waitUntil(
@@ -58,9 +58,8 @@ self.addEventListener('install', function(event) {
   );
 });
 
-
 /**
-* Clean unwanted cache
+* Clean unwanted cache.
 */
 self.addEventListener('activate', function(event) {
 event.waitUntil(

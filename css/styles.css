@@ -260,7 +260,6 @@ img#logo {
   border-bottom: 1px solid #ccc;
   font-family: Arial,sans-serif;
   margin: 15px;
-  min-height: 380px;
   padding: 0;
   text-align: center;
   width: 500px;
@@ -268,7 +267,7 @@ img#logo {
 	box-shadow: 1px 4px 5px #E4E4E4;
 }
 
-@media screen and (max-width: 567px) {
+@media screen and (max-width: 519px) {
 	#restaurants-list {
 	  padding: 10px;
     padding-bottom: 0;
@@ -282,7 +281,7 @@ img#logo {
 	}
 }
 
-@media screen and (min-width: 568px) and (max-width: 959px) {
+@media screen and (min-width: 520px) and (max-width: 959px) {
 	#restaurants-list li {
 	  margin: 0;
     margin-right: auto;
@@ -317,7 +316,7 @@ img#logo {
 	}
 }
 
-@media screen and (min-width: 568px) and (max-width: 700px) {
+@media screen and (min-width: 520px) and (max-width: 700px) {
 	#restaurants-list {
 	  padding: 10px;
     padding-bottom: 0;
@@ -346,7 +345,6 @@ img#logo {
   display: block;
   margin: auto;
   max-width: 100%;
-  min-height: 248px;
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
 }
