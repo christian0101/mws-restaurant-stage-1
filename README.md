@@ -1,8 +1,6 @@
-# Mobile Web Specialist Certification Course
+# Mobile Web Specialist Certification Course - [Solution](https://christian0101.github.io/mws-restaurant-stage-1/)
 ---
 #### _Three Stage Course Material Project - Restaurant Reviews_
-
-[Preview](https://christian0101.github.io/mws-restaurant-stage-1/)
 
 ## Project Overview: Stage 1
 
